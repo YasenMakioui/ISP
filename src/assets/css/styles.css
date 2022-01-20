@@ -1,0 +1,19 @@
+.footer {
+    background-image: url(/src/assets/img/svg.png) !important;
+    height: 36rem !important;
+}
+
+
+.serviceIcon {
+    width: 120px ;
+    height: 120px;
+    margin: 4px;
+    border-radius: 10%;
+    box-shadow:  0px 0px 5px rgb(126, 126, 126);
+}
+
+.apache {
+    background-image: url(/src/assets/img/serviceIcons/apache.png);
+    background-size: cover;
+}
+
