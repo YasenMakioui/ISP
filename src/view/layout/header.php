@@ -29,11 +29,16 @@
                             <a class="nav-link" href="?vista=contact.php">Contact</a>
                             <a class="nav-link" href="?vista=more.php">More</a>
                         </div>
-                        <div class="buttons ">
-                            <button class="btn btn-primary">Login</button>
-                            <button class="btn btn-primary">Signup</button>
-                        </div>
-
+                        <?php if (!isset($_SESSION['user'])) : ?>
+                            <div class="buttons ">
+                                <button class="btn btn-primary">Login</button>
+                                <button class="btn btn-primary">Signup</button>
+                            </div>
+                        <?php else: ?>
+                            <div>
+                                <p>estas logueado</p>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
