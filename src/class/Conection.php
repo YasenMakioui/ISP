@@ -6,10 +6,11 @@ class Conection {
 
     public function __construct()
     {   
-        $this->conn = new PDO('mysql:host=localhost', 'admin', 'M@n@cor123');
+        $this->conn = new mysqli('localhost', 'admin', 'M@n@cor123');
     }
 
     public function getConection() {
+        $this->conn->select_db('isp');
         return $this->conn;
     }
 }
