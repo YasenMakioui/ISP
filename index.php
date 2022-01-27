@@ -26,4 +26,5 @@ if (isset($_GET['vista'])) {
 
 
 
+
 require_once './src/view/layout/footer.php';

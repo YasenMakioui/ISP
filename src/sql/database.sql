@@ -25,7 +25,7 @@ CREATE TABLE servicio (
 );
 CREATE TABLE usuario_servicio (
     idUsuarioServicio INT NOT NULL PRIMARY KEY,
-    idServicio INT ,
+    idServicio INT,
     idUsuario INT NOT NULL,
     nombreUsuario VARCHAR(50),
     password VARCHAR(255),
