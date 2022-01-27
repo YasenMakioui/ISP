@@ -10,7 +10,10 @@ class Conection {
     }
 
     public function getConection() {
-        $this->conn->select_db('isp');
+        
+        if (!$this->conn->select_db('isp')) {
+            return false;
+        }
         return $this->conn;
     }
 }
