@@ -32,39 +32,11 @@ if (
     $email = $_POST['email'];
     $telefono = $_POST['telefono'];
     $dni = $_POST['dni'];
-}
+} 
 
-$clavesMandatorias = array(
-    'nombre',
-    'apellido1',
-    'nombreUsuario',
-    'password',
-    'email',
-    'telefono',
-    'dni'
-);
 
-$clavesOpcionales = array(
-    'apellido2',
-    'fechaNacimiento',
-    'direccion',
-    'codiPostal',
-    'poblacion',
-    'pais'
-);
 
-foreach ($clavesMandatorias as $valor) {
-    if (!isset($_POST[$valor])) {
-        die(0);
-    }
-}
 
-foreach ($clavesOpcionales as $valor) {
-    if (isset($_POST[$valor])) {
-        $opcional . ucfirst($valor) = $_POST[$valor];
-    }
-}
-$opcional . $valor;
 /*
 $nombre = $_POST['nombre'];
 $apellido1 = $_POST['apellido1'];
