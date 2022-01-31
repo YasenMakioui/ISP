@@ -18,7 +18,7 @@ if (isset($_GET['vista'])) {
     $vista = $_GET['vista'];
     require_once './src/view/' . $vista;
 } else {
-    require_once './src/view/home.php';
+    require_once './src/view/inicio.php';
 }
 
 
