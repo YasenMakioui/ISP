@@ -40,7 +40,11 @@ function comprobarUsuario()
             $verification = password_verify($plainPassword, $row['password']);
             if ($verification) {
                 echo "verificao";
+            } else {
+                echo "no verificado";
             }
+
+            echo $row['nombreUsuario'];
         }
     }
 }
