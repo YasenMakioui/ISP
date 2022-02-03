@@ -4,7 +4,6 @@
  */
 if (isset($_GET['vista'])) {
     $noHeader = $_GET['vista'] === 'login.php' || $_GET['vista'] === 'alta.php' ? 'd-none' : '';
-
 }
 
 ?>
@@ -37,10 +36,10 @@ if (isset($_GET['vista'])) {
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="d-flex justify-content-between" style="width: 100% !important;">
                         <div class="d-flex ">
-                            <a class="nav-link" href="?vista=home.php">Home</a>
-                            <a class="nav-link" href="?vista=services.php">Services</a>
-                            <a class="nav-link" href="?vista=contact.php">Contact</a>
-                            <a class="nav-link" href="?vista=more.php">More</a>
+                            <a class="nav-link" href="?vista=inicio.php">Home</a>
+                            <a class="nav-link" href="?vista=servicios.php">Services</a>
+                            <a class="nav-link" href="?vista=contacto.php">Contact</a>
+                            <a class="nav-link" href="?vista=mas.php">More</a>
                         </div>
                         <?php if (!isset($_SESSION['user'])) : ?>
                             <div class="buttons "></div>
