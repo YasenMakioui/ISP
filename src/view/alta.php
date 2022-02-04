@@ -36,11 +36,9 @@
                 $sql = "SELECT idCiudad, nombreCiudad FROM ciudad;";
                 //realizar foreach con consulta de poblaciones
                 $result = $conn->query($sql);
-                while ($row = $result->fetch_assoc()):
+                while ($row = $result->fetch_assoc()) :
                 ?>
-                    <option value="<?=$row['idCiudad']?>"><?=$row['nombreCiudad']?></option>
-                    
-
+                    <option value="<?= $row['idCiudad'] ?>"><?= $row['nombreCiudad'] ?></option>
                 <?php
                 endwhile;
                 ?>
@@ -48,7 +46,7 @@
             <div class="w-100 d-flex justify-content-end">
                 <button class="btn btn-primary ">Enviar</button>
             </div>
-            
+
         </div>
 
     </form>
