@@ -2,7 +2,9 @@
 
 class Conection
 {
-
+/**
+ * @author Yasen el Makioui
+ */
     private $conn;
 
     public function __construct()
