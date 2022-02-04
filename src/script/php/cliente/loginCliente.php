@@ -25,26 +25,34 @@ $password;
 
 //miras si estan setteados, isset y luego miras si estan empty, y luego nada mas
 
-function comprobarUsuario()
+function comprobarUsuario($usuario)
 {
     global $conn;
-
-    $sql = "SELECT nombreUsuario,password from usuario;";
+    
+    $sql = "SELECT nombreUsuario,password from usuario WHERE nombreUsuario = '{$usuario}';";
 
     $result = $conn->query($sql);
-
+    
+    
+    if (!$result) { return; }
+    
+    
     if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        if ($_POST['username'] === $row['nombreUsuario']) {
+        
+        $row = $result->fetch_assoc();    
+        
+        if ($_POST['username'] == $row['nombreUsuario']) {
             $plainPassword = $_POST['password'];
+            
             $verification = password_verify($plainPassword, $row['password']);
             if ($verification) {
-                echo "verificao";
+                /**
+                 * START SESSION
+                 */
+                
             } else {
-                echo "no verificado";
+                header('Location: /?vista=login.php&obligatorio=1');
             }
-
-            echo $row['nombreUsuario'];
         }
     }
 }
@@ -65,10 +73,14 @@ function validarObligatorios()
         if (empty($username) or empty($password)) {
             header('Location: /?vista=login.php&obligatorio=1');
         } else {
-            comprobarUsuario();
+            comprobarUsuario($username);
 
         }
+    } else {
+        header('Location: /?vista=login.php&obligatorio=1');
     }
+
+    
 }
 
 validarObligatorios();

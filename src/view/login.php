@@ -3,6 +3,14 @@
 /**
  * @author Younes Boudouch
  */
+
+$noCoincide = "";
+
+if (isset($_GET['obligatorio'])) {
+   if ($_GET['obligatorio'] == '1') {
+      $noCoincide="<span>Las credenciales no coinciden</span>";
+   }
+}
 ?>
 
 <div class="w-100 form-wrapper d-flex justify-content-center align-items-center">
@@ -13,12 +21,13 @@
          <label class="d-block" for="username" >Usuario: </label>
          <input class="mb-2 p-1" type="text" name="username" id="username">
          <label class="d-block" for="pass">Password: </label>
-         <input class="mb-2 p-1" type="pass" name="password" id="password"> 
+         <input class="mb-2 p-1" type="password" name="password" id="password"> 
       <div>
       <div class="w-100 d-flex justify-content-end">
                 <button class="btn btn-primary " type="submit">Enviar</button>
       </div>
    </form>
+   <?=$noCoincide?>
 </div>
 
 
