@@ -6,11 +6,20 @@
 
 $noCoincide = "";
 
+//tratamiento de errores 
 if (isset($_GET['obligatorio'])) {
-   if ($_GET['obligatorio'] == '1') {
+   if ($_GET['obligatorio'] == '0') {
       $noCoincide="<span>Las credenciales no coinciden</span>";
    }
 }
+
+
+
+//Si el usuario esta loggeado, lo redirigimos al inicio
+if (isset($_SESSION['user'])) {
+   header('Location: /?vista=inicio.php');
+}
+
 ?>
 
 <div class="w-100 form-wrapper d-flex justify-content-center align-items-center">

@@ -4,7 +4,7 @@
  * @author Yasen El Makioui, Younes Boudouch
  */
 if (isset($_GET['vista'])) {
-    $noHeader = $_GET['vista'] === 'login.php' || $_GET['vista'] === 'alta.php' ? 'd-none' : '';
+    $noHeader = $_GET['vista'] === 'login.php' || $_GET['vista'] === 'alta.php'? 'd-none' : '';
 }
 
 ?>
@@ -50,12 +50,12 @@ if (isset($_GET['vista'])) {
             <?php else : ?>
                 <div>
                     <div class="btn-group">
-                        <button class="btn btn-secondary btn-md dropdown-toggle ml-5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <?=$_SESSION['user']['nombre']?>
+                        <button class="btn btn-secondary btn-md dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <?= $_SESSION['user']['nombre'] ?>
                         </button>
                         <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Action</a></li>
                             <li><a class="dropdown-item" href="./src/script/php/cliente/salir.php">Salir</a></li>
                         </ul>
                     </div>

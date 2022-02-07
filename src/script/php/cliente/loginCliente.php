@@ -14,7 +14,12 @@ $username;
 $password;
 
 
-
+/**
+ * CODIGOS:
+ * 
+ * 0 -> no coinciden las credenciales
+ * 1 -> la base de datos no esta funcionando
+ */
 
 // function check($datosform){
 //     $datosform = trim($datosform);
@@ -34,7 +39,7 @@ function comprobarUsuario($usuario)
     $result = $conn->query($sql);
     
     
-    if (!$result) { return; }
+    if (!$result) { header('Location: /?vista=login.php&obligatorio=1'); }
     
     
     if ($result->num_rows > 0) {
@@ -52,9 +57,11 @@ function comprobarUsuario($usuario)
                 $_SESSION['user'] = $row;
                 header('Location: /?vista=inicio.php');
             } else {
-                header('Location: /?vista=login.php&obligatorio=1');
+                header('Location: /?vista=login.php&obligatorio=0');
             }
         }
+    } else {
+        header('Location: /?vista=login.php&obligatorio=0');
     }
 }
 
@@ -72,13 +79,13 @@ function validarObligatorios()
         $username = $_POST['username'];
         $password = $_POST['password'];
         if (empty($username) or empty($password)) {
-            header('Location: /?vista=login.php&obligatorio=1');
+            header('Location: /?vista=login.php&obligatorio=0');
         } else {
             comprobarUsuario($username);
 
         }
     } else {
-        header('Location: /?vista=login.php&obligatorio=1');
+        header('Location: /?vista=login.php&obligatorio=0');
     }
 
     
