@@ -19,7 +19,8 @@ $codigoPostal = "";
 $poblacion = "";
 
 /**
- * @param datos array ordenado con los datos
+ * @param obligatorio array asociativo con datos obligatorios
+ * @param opcionales array asociativo con datos opcionales
  */
 function insertarDatos($obligatorios, $opcionales)
 {

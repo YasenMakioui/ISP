@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 /**
  * @author Younes Boudouch
@@ -29,7 +29,7 @@ function comprobarUsuario($usuario)
 {
     global $conn;
     
-    $sql = "SELECT nombreUsuario,password from usuario WHERE nombreUsuario = '{$usuario}';";
+    $sql = "SELECT * from usuario WHERE nombreUsuario = '{$usuario}';";
 
     $result = $conn->query($sql);
     
@@ -46,10 +46,11 @@ function comprobarUsuario($usuario)
             
             $verification = password_verify($plainPassword, $row['password']);
             if ($verification) {
-                /**
-                 * START SESSION
-                 */
-                
+                 /**
+                  *  
+                  */ 
+                $_SESSION['user'] = $row;
+                header('Location: /?vista=inicio.php');
             } else {
                 header('Location: /?vista=login.php&obligatorio=1');
             }
