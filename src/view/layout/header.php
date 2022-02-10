@@ -7,6 +7,16 @@ if (isset($_GET['vista'])) {
     $noHeader = $_GET['vista'] === 'login.php' || $_GET['vista'] === 'alta.php'? 'd-none' : '';
 }
 
+if (isset($_SESSION['idUsuario'])) {
+    $sql = "SELECT nombre FROM usuario WHERE idUsuario = {$_SESSION['idUsuario']}";
+
+    $result = $conn->query($sql);
+
+    $row = $result->fetch_assoc();
+
+    $userName = $row['nombre'];
+}
+
 ?>
 
 
@@ -21,6 +31,7 @@ if (isset($_GET['vista'])) {
     <link rel="stylesheet" href="/src/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
     <script src="/src/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="/src/assets/css/styles.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <title>Document</title>
 </head>
 
@@ -42,7 +53,7 @@ if (isset($_GET['vista'])) {
                         <a class="nav-link" href="?vista=contacto.php">Contact</a>
                         <a class="nav-link" href="?vista=mas.php">More</a>
                     </div>
-                    <?php if (!isset($_SESSION['user'])) : ?>
+                    <?php if (!isset($_SESSION['idUsuario'])) : ?>
                         <div class="buttons "></div>
                         <a class="btn btn-primary" href="?vista=login.php">Login</a>
                         <a class="btn btn-primary" href="?vista=alta.php">Signup</a>
@@ -51,7 +62,7 @@ if (isset($_GET['vista'])) {
                 <div>
                     <div class="btn-group">
                         <button class="btn btn-secondary btn-md dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <?= $_SESSION['user']['nombre'] ?>
+                            <?=$userName ?>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Action</a></li>

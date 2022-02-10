@@ -16,7 +16,7 @@ if (isset($_GET['obligatorio'])) {
 
 
 //Si el usuario esta loggeado, lo redirigimos al inicio
-if (isset($_SESSION['user'])) {
+if (isset($_SESSION['idUsuario'])) {
    header('Location: /?vista=inicio.php');
 }
 
@@ -33,7 +33,10 @@ if (isset($_SESSION['user'])) {
          <input class="mb-2 p-1" type="password" name="password" id="password"> 
       <div>
       <div class="w-100 d-flex justify-content-end">
-                <button class="btn btn-primary " type="submit">Enviar</button>
+         <button class="btn btn-primary " type="submit">Enviar</button>          
+      </div>
+      <div>
+      <i class="bi bi-house"></i>
       </div>
    </form>
    <?=$noCoincide?>

@@ -54,7 +54,7 @@ function comprobarUsuario($usuario)
                  /**
                   *  
                   */ 
-                $_SESSION['user'] = $row;
+                $_SESSION['idUsuario'] = $row['idUsuario'];
                 header('Location: /?vista=inicio.php');
             } else {
                 header('Location: /?vista=login.php&obligatorio=0');

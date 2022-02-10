@@ -19,13 +19,6 @@ if (isset($_GET['obligatorio'])){
 };
 
 
-/**
- * si es 0 $vriable = kkandlka
- * si es 1 $v = adsd
- * si es 2 $ var = dlaksdj
- */
-
- 
 
 ?>
 <div class="w-100 form-wrapper d-flex justify-content-center align-items-center">

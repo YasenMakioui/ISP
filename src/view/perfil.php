@@ -4,9 +4,17 @@
  * @author Yasen El Makioui
  */
 
+ $sql = "SELECT * FROM usuario WHERE idUsuario = {$_SESSION['idUsuario']}";
+
+ $result = $conn->query($sql);
 
 
+ $usuario = $result->fetch_assoc;
 
+
+ if (isset($_SESSION['idUsuario'])) {
+     header('Location: /?vista=inicio.php');
+ }
 
 ?>
 <div class="w-100 form-wrapper d-flex justify-content-center align-items-center">
