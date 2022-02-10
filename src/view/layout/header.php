@@ -65,7 +65,7 @@ if (isset($_SESSION['idUsuario'])) {
                             <?=$userName ?>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="/?vista=perfil.php">Mi perfil</a></li>
                             <li><a class="dropdown-item" href="#">Action</a></li>
                             <li><a class="dropdown-item" href="./src/script/php/cliente/salir.php">Salir</a></li>
                         </ul>

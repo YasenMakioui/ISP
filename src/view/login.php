@@ -32,11 +32,11 @@ if (isset($_SESSION['idUsuario'])) {
          <label class="d-block" for="pass">Password: </label>
          <input class="mb-2 p-1" type="password" name="password" id="password"> 
       <div>
-      <div class="w-100 d-flex justify-content-end">
-         <button class="btn btn-primary " type="submit">Enviar</button>          
-      </div>
-      <div>
-      <i class="bi bi-house"></i>
+      <div class="w-100 d-flex justify-content-between">
+         <button class="btn btn-primary " type="submit">Enviar</button> 
+         <a href="?vista=inicio.php">
+            <i class="bi bi-house fs-3"></i>
+         </a>        
       </div>
    </form>
    <?=$noCoincide?>

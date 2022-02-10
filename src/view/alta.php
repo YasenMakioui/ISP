@@ -61,8 +61,11 @@ if (isset($_GET['obligatorio'])){
                 endwhile;
                 ?>
             </select>
-            <div class="w-100 d-flex justify-content-end">
+            <div class="w-100 d-flex justify-content-between">
                 <button class="btn btn-primary ">Enviar</button>
+                <a href="?vista=inicio.php">
+                    <i class="bi bi-house fs-3"></i>
+                </a>  
             </div>
 
         </div>
