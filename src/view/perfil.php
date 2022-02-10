@@ -57,7 +57,7 @@
                 ?>
             </select>
             <div class="w-100 d-flex justify-content-end">
-                <a href="/src/script/php/cliente/modificacionCliente.php" class="btn btn-primary ">Actualizar</a>
+                <button type="submit" class="btn btn-primary ">Actualizar</button>
             </div>
 
         </div>

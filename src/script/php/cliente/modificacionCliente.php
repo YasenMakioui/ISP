@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 if (!isset($_SESSION['idUsuario'])) {
     header('Location: /?vista=inicio.php');
 }
@@ -8,54 +11,43 @@ require_once '../../../class/Conection.php';
 $db = new Conection();
 $conn = $db->getConection();
 
-$datosUsuario = array(
-    'nombre' => $_POST['nombre'],
-    'apellido1' => $_POST['apellido1'],
-    'apellido2' => $_POST['apellido2'],
-    'email' => $_POST['email'],
-    'nombreUsuario' => $_POST['nombreUsuario'],
-    'telefono' => $_POST['dni'],
-    'fechaNacimiento' => $_POST['fechaNacimiento'],
-    'direccion' => $_POST['direccion'],
-    'codigoPostal' => $_POST['codigoPostal'],
-    'poblacion' => $_POST['poblacion']
-    
-);
+$password = $conn
+    ->query("SELECT password from usuario WHERE idUsuario = {$_SESSION['idUsuario']}")
+    ->fetch_all();
 
+$hash = $password[0][0];
 
-$sql = "SELECT * FROM usuario WHERE idUsuario = {$_SESSION['idUsuario']}";
-
-$result = $conn->query($sql);
-
-$usuario = $result->fetch_assoc();
+if (password_verify($_POST['password'], $hash)) {
+    //$conn = NULL;
+    //$conn = $db->getConection();
 
 
 
-if ($_POST['nombre'] == $usuario['nombre']) {
-    
+    $sql = "UPDATE usuario SET nombre='{$_POST['nombre']}', " .
+        "apellido1='{$_POST['apellido1']}', " .
+        "apellido2='{$_POST['apellido2']}', " .
+        "correo='{$_POST['email']}', " .
+        "nombreUsuario='{$_POST['nombreUsuario']}', " .
+        "telefono='{$_POST['telefono']}', " .
+        "fechaNacimiento='{$_POST['fechaNacimiento']}', " .
+        "direccion='{$_POST['direccion']}', " .
+        "codigoPostal='{$_POST['codigoPostal']}', " .
+        "idCiudad=NULL WHERE idUsuario = {$_SESSION['idUsuario']};";
+
+
+    $result = $conn->query($sql);
+
+
+
+    if (!$result) {
+        header('Location: /?vista=perfil.php&obligatorio=1');
+    }
+
+    header('Location: /?vista=perfil.php&obligatorio=0');
+} else {
+    header('Location: /?vista=perfil.php&obligatorio=2');
 }
 
-if ($_POST['nombre'] == $usuario['nombre']) {
-    
-}
-
-if ($_POST['nombre'] == $usuario['nombre']) {
-    
-}
-
-if ($_POST['nombre'] == $usuario['nombre']) {
-    
-}
-
-if ($_POST['nombre'] == $usuario['nombre']) {
-    
-}
-
-if ($_POST['nombre'] == $usuario['nombre']) {
-    
-}
-
-if ($_POST['nombre'] == $usuario['nombre']) {
-    
-}
-
+//if (password_verify($_POST['password'], $password)) {
+   
+//}
