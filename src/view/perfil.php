@@ -4,17 +4,15 @@
  * @author Yasen El Makioui
  */
 
- $sql = "SELECT * FROM usuario WHERE idUsuario = {$_SESSION['idUsuario']}";
+$sql = "SELECT * FROM usuario WHERE idUsuario = {$_SESSION['idUsuario']}";
 
- $result = $conn->query($sql);
-
-
- $usuario = $result->fetch_assoc();
+$usuario = $conn->query($sql)->fetch_assoc();
 
 
- if (!isset($_SESSION['idUsuario'])) {
-     header('Location: /?vista=inicio.php');
- }
+
+if (!isset($_SESSION['idUsuario'])) {
+    header('Location: /?vista=inicio.php');
+}
 
 ?>
 <div class="w-100 form-wrapper d-flex justify-content-center align-items-center">
@@ -22,36 +20,41 @@
         <div class="p-5 border rounded shadow">
             <h1 class="text-center">Perfil</h1>
             <label for="nombre" class="d-block">Nombre:</label>
-            <input type="text" name="nombre" class="mb-2 p-1" value="<?=$usuario['nombre']?>">
+            <input type="text" name="nombre" class="mb-2 p-1" value="<?= $usuario['nombre'] ?>">
             <label for="apellido1" class="d-block">Apellido 1:</label>
-            <input type="text" name="apellido1" class="mb-2 p-1" value="<?=$usuario['apellido1']?>">
+            <input type="text" name="apellido1" class="mb-2 p-1" value="<?= $usuario['apellido1'] ?>">
             <label for="apellido2" class="d-block">Apellido 2:</label>
-            <input type="text" name="apellido2" class="mb-2 p-1" value="<?=$usuario['apellido2']?>">
-            <label for="email" class="d-block" >Email:</label>
-            <input type="text" name="email" class="mb-2 p-1" value="<?=$usuario['correo']?>">
+            <input type="text" name="apellido2" class="mb-2 p-1" value="<?= $usuario['apellido2'] ?>">
+            <label for="email" class="d-block">Email:</label>
+            <input type="text" name="email" class="mb-2 p-1" value="<?= $usuario['correo'] ?>">
             <label for="nombreUsuario" class="d-block">Usuario:</label>
-            <input type="text" name="nombreUsuario" class="mb-2 p-1" value="<?=$usuario['nombreUsuario']?>">
+            <input type="text" name="nombreUsuario" class="mb-2 p-1" value="<?= $usuario['nombreUsuario'] ?>">
             <label for="password" class="d-block">Password:</label>
             <input type="password" name="password" class="mb-2 p-1">
             <label for="telefono" class="d-block">Teléfono:</label>
-            <input type="text" name="telefono" class="mb-2 p-1" value="<?=$usuario['telefono']?>">
+            <input type="text" name="telefono" class="mb-2 p-1" value="<?= $usuario['telefono'] ?>">
             <label for="dni" class="d-block">DNI:</label>
-            <input type="text" name="dni" class="mb-2 p-1" value="<?=$usuario['dni']?>">
+            <input type="text" name="dni" class="mb-2 p-1" value="<?= $usuario['dni'] ?>">
             <label for="fechaNacimiento" class="d-block">Fecha de Nacimiento:</label>
-            <input type="text" name="fechaNacimiento" class="mb-2 p-1" value="<?=$usuario['fechaNacimiento']?>">
+            <input type="text" name="fechaNacimiento" class="mb-2 p-1" value="<?= $usuario['fechaNacimiento'] ?>">
             <label for="direccion" class="d-block">Dirección:</label>
-            <input type="text" name="direccion" class="mb-2 p-1" value="<?=$usuario['direccion']?>">
+            <input type="text" name="direccion" class="mb-2 p-1" value="<?= $usuario['direccion'] ?>">
             <label for="codigoPostal" class="d-block">Código Postal</label>
-            <input type="text" name="codigoPostal" class="mb-2 p-1" value="<?=$usuario['codigoPostal']?>">
+            <input type="text" name="codigoPostal" class="mb-2 p-1" value="<?= $usuario['codigoPostal'] ?>">
             <label for="poblacion" class="d-block">Población:</label>
             <select name="poblacion" class="d-block mb-2 p-1">
                 <?php
                 $sql = "SELECT idCiudad, nombreCiudad FROM ciudad;";
                 //realizar foreach con consulta de poblaciones
+                $selected = "";
                 $result = $conn->query($sql);
                 while ($row = $result->fetch_assoc()) :
+                    
+                    if($row['idCiudad'] == $usuario['idCiudad']) {
+                       $selected = "selected";
+                    }
                 ?>
-                    <option value="<?= $row['idCiudad'] ?>"><?= $row['nombreCiudad'] ?></option>
+                    <option value="<?=$row['idCiudad'] ?>" <?=$selected?>> <?=$row['nombreCiudad'] ?></option>
                 <?php
                 endwhile;
                 ?>

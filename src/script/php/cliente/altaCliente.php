@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CODIGOS:
  * 
@@ -45,13 +46,13 @@ function insertarDatos($obligatorios, $opcionales)
         die();
         return;
     }
-
+    
     //insert con los datos que recuperamos de la variable obligatorios y opcioales
     $sql = "INSERT INTO usuario ".
         "values(NULL, '{$obligatorios['nombre']}', '{$obligatorios['dni']}', " .
         "'{$obligatorios['apellido1']}', '{$opcionales['apellido2']}', '{$obligatorios['email']}', " .
         "'{$obligatorios['nombreUsuario']}', '{$obligatorios['password']}', '{$obligatorios['telefono']}', " .
-        "'{$opcionales['fechaNacimiento']}', '{$opcionales['direccion']}', '{$opcionales['codigoPostal']}', NULL);";
+        "'{$opcionales['fechaNacimiento']}', '{$opcionales['direccion']}', '{$opcionales['codigoPostal']}', '{$opcionales['poblacion']}');";
 
     //si no se pudo insertar volvemos
     if (!$conn->query($sql)) {

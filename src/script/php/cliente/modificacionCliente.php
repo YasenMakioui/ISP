@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author Yasen Makioui
+ */
+
 session_start();
 
 if (!isset($_SESSION['idUsuario'])) {
@@ -18,11 +22,7 @@ $password = $conn
 $hash = $password[0][0];
 
 if (password_verify($_POST['password'], $hash)) {
-    //$conn = NULL;
-    //$conn = $db->getConection();
-
-
-
+    
     $sql = "UPDATE usuario SET nombre='{$_POST['nombre']}', " .
         "apellido1='{$_POST['apellido1']}', " .
         "apellido2='{$_POST['apellido2']}', " .
@@ -32,7 +32,7 @@ if (password_verify($_POST['password'], $hash)) {
         "fechaNacimiento='{$_POST['fechaNacimiento']}', " .
         "direccion='{$_POST['direccion']}', " .
         "codigoPostal='{$_POST['codigoPostal']}', " .
-        "idCiudad=NULL WHERE idUsuario = {$_SESSION['idUsuario']};";
+        "idCiudad='{$_POST['idCiudad']}' WHERE idUsuario = {$_SESSION['idUsuario']};";
 
 
     $result = $conn->query($sql);
