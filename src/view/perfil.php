@@ -50,8 +50,10 @@ if (!isset($_SESSION['idUsuario'])) {
                 $result = $conn->query($sql);
                 while ($row = $result->fetch_assoc()) :
                     
-                    if($row['idCiudad'] == $usuario['idCiudad']) {
+                    if($row['idCiudad'] === $usuario['idCiudad']) {
                        $selected = "selected";
+                    } else {
+                        $selected = "";
                     }
                 ?>
                     <option value="<?=$row['idCiudad'] ?>" <?=$selected?>> <?=$row['nombreCiudad'] ?></option>
@@ -59,8 +61,9 @@ if (!isset($_SESSION['idUsuario'])) {
                 endwhile;
                 ?>
             </select>
-            <div class="w-100 d-flex justify-content-end">
+            <div class="w-100 d-flex justify-content-between">
                 <button type="submit" class="btn btn-primary ">Actualizar</button>
+                <a href="src/script/php/cliente/bajaCliente.php" class="btn btn-primary ">Eliminar</a>
             </div>
 
         </div>

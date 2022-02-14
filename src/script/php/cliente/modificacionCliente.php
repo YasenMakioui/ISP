@@ -22,17 +22,17 @@ $password = $conn
 $hash = $password[0][0];
 
 if (password_verify($_POST['password'], $hash)) {
-    
     $sql = "UPDATE usuario SET nombre='{$_POST['nombre']}', " .
         "apellido1='{$_POST['apellido1']}', " .
         "apellido2='{$_POST['apellido2']}', " .
+        "dni='{$_POST['dni']}', " .
         "correo='{$_POST['email']}', " .
         "nombreUsuario='{$_POST['nombreUsuario']}', " .
         "telefono='{$_POST['telefono']}', " .
         "fechaNacimiento='{$_POST['fechaNacimiento']}', " .
         "direccion='{$_POST['direccion']}', " .
         "codigoPostal='{$_POST['codigoPostal']}', " .
-        "idCiudad='{$_POST['idCiudad']}' WHERE idUsuario = {$_SESSION['idUsuario']};";
+        "idCiudad={$_POST['poblacion']} WHERE idUsuario = {$_SESSION['idUsuario']};";
 
 
     $result = $conn->query($sql);

@@ -39,7 +39,7 @@ function comprobarUsuario($usuario)
     $result = $conn->query($sql);
     
     
-    if (!$result) { header('Location: /?vista=login.php&obligatorio=1'); }
+    if (!$result) { header('Location: /?vista=login.php&obligatorio=0'); }
     
     
     if ($result->num_rows > 0) {

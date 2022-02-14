@@ -4,7 +4,7 @@
  * @author Yasen El Makioui, Younes Boudouch
  */
 if (isset($_GET['vista'])) {
-    $noHeader = $_GET['vista'] === 'login.php' || $_GET['vista'] === 'alta.php'? 'd-none' : '';
+    $noHeader = $_GET['vista'] === 'login.php' || $_GET['vista'] === 'alta.php' || $_GET['vista']==='dashboard.php'? 'd-none' : '';
 }
 
 if (isset($_SESSION['idUsuario'])) {
@@ -66,7 +66,7 @@ if (isset($_SESSION['idUsuario'])) {
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/?vista=perfil.php">Mi perfil</a></li>
-                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="/?vista=dashboard.php">Dashboard</a></li>
                             <li><a class="dropdown-item" href="./src/script/php/cliente/salir.php">Salir</a></li>
                         </ul>
                     </div>

@@ -3,7 +3,7 @@
  * @author Younes Boudouch
  */
 if (isset($_GET['vista'])) {
-$noFooter = $_GET['vista'] === 'login.php' || $_GET['vista'] === 'alta.php' ? 'd-none' : '';
+$noFooter = $_GET['vista'] === 'login.php' || $_GET['vista'] === 'alta.php' || $_GET['vista'] === 'dashboard.php' ? 'd-none' : '';
 }
 
 ?>
