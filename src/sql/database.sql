@@ -35,3 +35,4 @@ CREATE TABLE usuario_servicio (
     FOREIGN KEY(idUsuario) REFERENCES usuario(idUsuario) ON DELETE CASCADE ON UPDATE CASCADE
 
 );
+

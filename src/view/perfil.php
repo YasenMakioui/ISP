@@ -8,7 +8,21 @@ $sql = "SELECT * FROM usuario WHERE idUsuario = {$_SESSION['idUsuario']}";
 
 $usuario = $conn->query($sql)->fetch_assoc();
 
+$statusMsg = "";
 
+//tratamiento de errores 
+if (isset($_GET['obligatorio'])){
+
+    if ($_GET['obligatorio'] == 0 ) {
+        $statusMsg = "El perfil se ha actualizado correctamente";
+    }elseif ($_GET['obligatorio'] == 1 ) {
+        $statusMsg = "El perfil no se ha actualizado correctamente";
+    }elseif ($_GET['obligatorio'] == 2 ) {
+        $statusMsg = "Introduzca la contraseña para actualizar su perfil";
+    }
+    
+};
+ 
 
 if (!isset($_SESSION['idUsuario'])) {
     header('Location: /?vista=inicio.php');
@@ -31,6 +45,8 @@ if (!isset($_SESSION['idUsuario'])) {
             <input type="text" name="nombreUsuario" class="mb-2 p-1" value="<?= $usuario['nombreUsuario'] ?>">
             <label for="password" class="d-block">Password:</label>
             <input type="password" name="password" class="mb-2 p-1">
+            <label for="newPassword" class="d-block">Nueva contraseña:</label>
+            <input type="password" name="newPassword" class="mb-2 p-1">
             <label for="telefono" class="d-block">Teléfono:</label>
             <input type="text" name="telefono" class="mb-2 p-1" value="<?= $usuario['telefono'] ?>">
             <label for="dni" class="d-block">DNI:</label>
@@ -69,4 +85,5 @@ if (!isset($_SESSION['idUsuario'])) {
         </div>
 
     </form>
+    <?=$statusMsg?>
 </div>

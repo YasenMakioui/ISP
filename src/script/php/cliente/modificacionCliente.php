@@ -20,12 +20,18 @@ $password = $conn
     ->fetch_all();
 
 $hash = $password[0][0];
+//password hasheado de sql
 
+$nuevaPasswordHash;
+$nuevaPassword = $_POST['newPassword'] && !empty($_POST['newPassword'])?  $nuevaPasswordHash = password_hash($_POST['newPassword'], PASSWORD_BCRYPT): $nuevaPassword = "";
+$nuevaPasswordSet = $_POST['newPassword'] ? "password='{$nuevaPasswordHash}', " : "";
+//password verify -> password via post y el hash de sql 
 if (password_verify($_POST['password'], $hash)) {
     $sql = "UPDATE usuario SET nombre='{$_POST['nombre']}', " .
         "apellido1='{$_POST['apellido1']}', " .
         "apellido2='{$_POST['apellido2']}', " .
         "dni='{$_POST['dni']}', " .
+        $nuevaPasswordSet .
         "correo='{$_POST['email']}', " .
         "nombreUsuario='{$_POST['nombreUsuario']}', " .
         "telefono='{$_POST['telefono']}', " .

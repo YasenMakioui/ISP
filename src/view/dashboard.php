@@ -2,42 +2,42 @@
     <div class="<?= $noSidebar ?>" style="height: 100vh !important;">
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height: 100vh !important;">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <svg class="bi me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap" />
-                </svg>
-                <span class="fs-4">Sidebar</span>
+                <i class="bi bi-house fs-3 mx-2"></i>
+                <span class="fs-4">Dashboard</span>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active" aria-current="page">
-                        Home
+                    <a href="/?vista=dashboard.php&accion=inicio" class="nav-link <?=$active = $_GET['accion'] == 'inicio' ? 'active' : 'text-white'?>" id="homeBtn">
+                        Inicio
+                    </a>
+                </li>
+                <li>
+                    <a href="/?vista=dashboard.php&accion=resumen" class="nav-link <?=$active = $_GET['accion'] == 'resumen' ? 'active' : 'text-white'?>" id="summaryBtn">
+
+                        Resumen
+                    </a>
+                </li>
+                <li>
+                    <a href="/?vista=dashboard.php&accion=servicios" class="nav-link <?=$active = $_GET['accion'] == 'servicios' ? 'active' : 'text-white'?>">
+
+                        Servicios
+                    </a>
+                </li>
+                <li>
+                    <a href="/?vista=dashboard.php&accion=dns" class="nav-link text-white">
+
+                        dns
                     </a>
                 </li>
                 <li>
                     <a href="#" class="nav-link text-white">
 
-                        Dashboard
+                        apache
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-
-                        Orders
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-
-                        Products
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-
-                        Customers
-                    </a>
-                </li>
+                <?php //bucle para listar servicios
+                ?>
             </ul>
             <hr>
             <div class="dropdown">
@@ -52,44 +52,44 @@
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    <li><a class="dropdown-item" href="/?vista=inicio.php">Sign out</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="w-100 bg-danger d-flex d-none">
-        1
-    </div>
-    <div class="w-100 bg-danger d-flex d-none">
-        2
-    </div>
-    <div class="w-100">
-        <div class="p-5">
-            <table class="table table-bordered">
-                <thead>
-                    
-                    <th scope="col">
-                    <input type="checkbox" name="" id="">    
-                    Type
-                    </th>
-                    <th scope="col">Host</th>
-                    <th scope="col">Value</th>
-                    <th scope="col">TTL</th>
-                    <th scope="col"></th>
-                </thead>
-                <tbody>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <th scope="col">
-                        <a href="">
-                        <i class="bi bi-trash"></i>
-                        </a>
-                    </th>
-                </tbody>
-            </table>
-        </div>
+    <?php
+    if (isset($_GET['accion'])) {
+        if ($_GET['accion'] == 'resumen') {
+            require_once './src/view/resumen.php';
+        } elseif ($_GET['accion'] == 'dns') {
+            require_once './src/view/dns.php';
+        } elseif ($_GET['accion'] == 'servicios') {
+            require_once './src/view/serviciosContratados.php';
+        } else {
+            echo '<h1>INICIO</h1>';
+        }
+    } else {
+        echo '<h1>INICIO</h1>';
+    }
 
-    </div>
+    ?>
 </div>
+
+<script>
+    const home = document.querySelector('#home');
+    const dashboard = document.querySelector('#dashboard');
+    const dns = document.querySelector('#dns');
+
+    const homeBtn = document.querySelector('#homeBtn');
+    const dashboardBtn = document.querySelector('#dashboardBtn');
+
+    homeBtn.addEventListener('click', () => {
+        dashboard.classList.add = 'd-none';
+        dns.classList.add = 'd-none'
+    });
+
+    dashboardBtn.addEventListener('click', () => {
+        home.classList.add('d-none');
+        dns.classList.add('d-none');
+    })
+</script>

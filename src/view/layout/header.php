@@ -46,7 +46,7 @@ if (isset($_SESSION['idUsuario'])) {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="d-flex justify-content-between" style="width: 100% !important;">
+                <div class="d-flex justify-content-start" style="width: 100% !important;">
                     <div class="d-flex ">
                         <a class="nav-link" href="?vista=inicio.php">Home</a>
                         <a class="nav-link" href="?vista=servicios.php">Services</a>
