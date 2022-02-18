@@ -37,8 +37,8 @@ if (isset($_SESSION['idUsuario'])) {
 
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5 <?= $noHeader ?>">
-            <div class="container-fluid"></div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary mb-5  <?= $noHeader ?>">
+            <div class="container-fluid "></div>
             <a class="navbar-brand" href="">
 
             </a>
@@ -48,15 +48,15 @@ if (isset($_SESSION['idUsuario'])) {
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="d-flex justify-content-start" style="width: 100% !important;">
                     <div class="d-flex ">
-                        <a class="nav-link" href="?vista=inicio.php">Home</a>
-                        <a class="nav-link" href="?vista=servicios.php">Services</a>
-                        <a class="nav-link" href="?vista=contacto.php">Contact</a>
-                        <a class="nav-link" href="?vista=mas.php">More</a>
+                        <a class="nav-link text-white" href="?vista=inicio.php">Home</a>
+                        <a class="nav-link text-white" href="?vista=servicios.php">Services</a>
+                        <a class="nav-link text-white" href="?vista=contacto.php">Contact</a>
+                        <a class="nav-link text-white" href="?vista=mas.php">More</a>
                     </div>
                     <?php if (!isset($_SESSION['idUsuario'])) : ?>
                         <div class="buttons "></div>
-                        <a class="btn btn-primary" href="?vista=login.php">Login</a>
-                        <a class="btn btn-primary" href="?vista=alta.php">Signup</a>
+                        <a class="mx-2 btn text-white border-bottom" href="?vista=login.php">Login</a>
+                        <a class="btn  mx-2 text-white border-bottom" href="?vista=alta.php">Signup</a>
                 </div>
             <?php else : ?>
                 <div>

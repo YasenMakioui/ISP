@@ -1,6 +1,6 @@
 <div class="w-100 d-flex" style="height: 100vh !important;">
     <div class="<?= $noSidebar ?>" style="height: 100vh !important;">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height: 100vh !important;">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-secondary" style="width: 280px; height: 100vh !important;">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <i class="bi bi-house fs-3 mx-2"></i>
                 <span class="fs-4">Dashboard</span>
