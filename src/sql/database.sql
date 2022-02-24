@@ -25,7 +25,7 @@ CREATE TABLE servicio (
   nombreServicio VARCHAR(28) NOT NULL
 );
 CREATE TABLE usuario_servicio (
-    idUsuarioServicio INT NOT NULL PRIMARY KEY,
+    idUsuarioServicio INT AUTO_INCREMENT PRIMARY KEY,
     idServicio INT,
     idUsuario INT NOT NULL,
     nombreUsuario VARCHAR(50),
