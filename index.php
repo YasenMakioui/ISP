@@ -5,7 +5,7 @@ require_once './src/class/Conection.php';
 
 $db = new Conection();
 $conn = $db->getConection();
-
+//prub
 require_once './src/view/layout/header.php';
 
 
