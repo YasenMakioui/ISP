@@ -1,12 +1,18 @@
 <div class="w-100" id="dns">
     <?php
+
+    //seleccionamos el nombre de dominio y el estado
         $sql = "SELECT status,nombreDominio FROM usuario_servicio WHERE idUsuario = {$_SESSION['idUsuario']} AND idServicio =".
         "(SELECT idServicio FROM servicio WHERE nombreServicio = 'dns')";
         $result = $conn->query($sql)->fetch_assoc();
-        if ($result['status'] == "no"):
+
+    //si el status es no, el usuario aun no ha realizado la configuracion inicial,
+    //incluimos la vista de inicializacion
+
+    if ($result['status'] == "no"):
             require_once './src/view/dashboard/setups/dns.php';
         else:
-            
+    //en caso contrario mostramos la tabla DNS
     ?>
         <h1 class="mx-5"><?=$result['nombreDominio']?></h1>
         <form class="mx-5 mt-5" action="">

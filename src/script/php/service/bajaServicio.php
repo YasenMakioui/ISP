@@ -8,6 +8,7 @@ $db = new Conection();
 
 $conn = $db->getConection();
 
+//borramos usando la id del servicio recogida por GET
 $sql = "DELETE FROM usuario_servicio WHERE idUsuario = {$_SESSION['idUsuario']} and idServicio = {$_GET['servicio']}";
 
 

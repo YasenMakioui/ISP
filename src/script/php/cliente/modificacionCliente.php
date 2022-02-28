@@ -6,26 +6,33 @@
 
 session_start();
 
+//comprobamos si esta loggeado, si no lo esta redirigimos
 if (!isset($_SESSION['idUsuario'])) {
     header('Location: /?vista=inicio.php');
 }
+
+//realizamos la conexion
 
 require_once '../../../class/Conection.php';
 
 $db = new Conection();
 $conn = $db->getConection();
 
+//recuperamos la contraseña de la base de datos
 $password = $conn
     ->query("SELECT password from usuario WHERE idUsuario = {$_SESSION['idUsuario']}")
     ->fetch_all();
 
+//recuperamos la contraseña del array bidimensional
 $hash = $password[0][0];
-//password hasheado de sql
 
+//variable para guardar la nueva contraseña en caso de haberla
 $nuevaPasswordHash;
+
+//ternaria, asigna una nueva contraseña si esta ha sido rellenada, en caso contrario asignamos un string vacio
 $nuevaPassword = $_POST['newPassword'] && !empty($_POST['newPassword'])?  $nuevaPasswordHash = password_hash($_POST['newPassword'], PASSWORD_BCRYPT): $nuevaPassword = "";
 $nuevaPasswordSet = $_POST['newPassword'] ? "password='{$nuevaPasswordHash}', " : "";
-//password verify -> password via post y el hash de sql 
+//si coincide la contraseña realizamos el update de los valores
 if (password_verify($_POST['password'], $hash)) {
     $sql = "UPDATE usuario SET nombre='{$_POST['nombre']}', " .
         "apellido1='{$_POST['apellido1']}', " .
@@ -44,7 +51,7 @@ if (password_verify($_POST['password'], $hash)) {
     $result = $conn->query($sql);
 
 
-
+    //tratamiento de errores y redirecciones
     if (!$result) {
         header('Location: /?vista=perfil.php&obligatorio=1');
     }
@@ -54,6 +61,4 @@ if (password_verify($_POST['password'], $hash)) {
     header('Location: /?vista=perfil.php&obligatorio=2');
 }
 
-//if (password_verify($_POST['password'], $password)) {
-   
-//}
+
