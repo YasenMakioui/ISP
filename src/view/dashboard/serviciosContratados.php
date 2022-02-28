@@ -10,39 +10,31 @@
         <table class="table table-bordered">
             <thead>
 
-                <th scope="col">
-                    <input type="checkbox" name="" id="">
-                    Type
-                </th>
+                
                 <th scope="col">Servicio</th>
-                <th scope="col">Dominio</th>
-                <th scope="col">Acción</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Baja</th>
             </thead>
             <tbody>
                 <?php
-                $sql = "SELECT usuario_servicio.idServicio, servicio.nombreServicio FROM usuario_servicio INNER JOIN servicio USING(idServicio) ";
+                $sql = "SELECT usuario_servicio.idServicio, usuario_servicio.status, servicio.nombreServicio FROM usuario_servicio INNER JOIN servicio USING(idServicio) ";
                 $result = $conn->query($sql);
                 while ($row = $result->fetch_assoc()) :
                 ?>
                     <tr>
-                        <th scope="row"><?= $row['idServicio'] ?></th>
+                        
                         <td><?= $row['nombreServicio'] ?></td>
-                        <td><?= $row['nombreServicio'] ?></td>
+                        <td><?=$status = $row['status'] == "no" ? "<i class='bi bi-broadcast text-danger p-2 fs-4'></i>pendiente": "<i class='p-2 bi bi-broadcast text-success fs-4'></i>activo"?></td>
                         <th scope="col">
-                            <a href="">
-                                <a href="" class="btn btn-danger">BAJA</a>
-                            </a>
+
+                            <a href="./src/script/php/service/bajaServicio.php?servicio=<?=$row['idServicio']?>" class="btn btn-danger">BAJA</a>
+
                         </th>
                     </tr>
                 <?php
                 endwhile;
                 ?>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <th scope="col">
-                    <a href="" class="btn btn-danger">BAJA</a>
-                </th>
+                
             </tbody>
         </table>
     </div>

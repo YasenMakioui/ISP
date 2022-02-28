@@ -13,7 +13,7 @@ foreach ($_POST as $key => $value) {
     
 }
 
-header('Location: /?vista=contratarServicio.php');
+header('Location: /?vista=dashboard.php&accion=serviciosContratados');
 
 
 

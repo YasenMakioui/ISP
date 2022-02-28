@@ -7,13 +7,8 @@
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a href="/?vista=dashboard.php&accion=inicio" class="nav-link" id="homeBtn">
-                        Inicio
-                    </a>
-                </li>
                 <?php //bucle para listar servicios
-                $lista = array("resumen", "serviciosContratados");
+                $lista = array("inicio","resumen", "serviciosContratados");
 
                 $sql = "SELECT servicio.nombreServicio FROM usuario_servicio INNER JOIN servicio USING(idServicio) ";
                 $result = $conn->query($sql);
@@ -56,11 +51,11 @@
     if (isset($_GET['accion'])) {
         foreach ($lista as $value) {
             if ($value == $_GET["accion"]) {
-                require_once './src/view/' . $value . '.php';
+                require_once './src/view/dashboard/' . $value . '.php';
             }
         }
     } else {
-        echo '<h1>INICIO</h1>';
+        require_once './src/view/dashboard/inicio.php';
     }
 
 

@@ -20,4 +20,12 @@ class Conection
         }
         return $this->conn;
     }
+
+    public function getConectionByUser($user){
+        $this->conn = new mysqli('localhost', $user, 'M@n@cor123');
+        if (!$this->conn) {
+            return true;
+        }
+        return false;
+    }
 }
