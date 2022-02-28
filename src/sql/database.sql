@@ -36,3 +36,8 @@ CREATE TABLE usuario_servicio (
 
 );
 
+CREATE TABLE informacionServicios (
+    id varchar("255") primary key not null,
+    titulo varchar("255"),
+    contenido longtext
+);

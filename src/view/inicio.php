@@ -11,37 +11,31 @@
     <!-- Call to Action-->
     <div class="card text-white bg-myFirstColor my-5 py-4 text-center">
         <div class="card-body">
-            <p class="text-white m-0 text-center fs-3" >Entre la multitud de serviciós que ofrecemos se encuentran los siguientes</p>
+            <p class="m-0 text-center fs-3 text-dark" >Entre la multitud de serviciós que ofrecemos se encuentran los siguientes</p>
         </div>
     </div>
     <!-- Content Row-->
     <div class="row gx-4 gx-lg-5">
-        <div class="col-md-4 mb-5">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h2 class="card-title">Hosting</h2>
-                    <p class="card-text">Apache es un servidor web HTTP de código abierto. Está desarrollado y mantenido por una comunidad de usuarios en torno a la Apache Software Foundation.</p>
+        <?php
+
+        $sql = "SELECT * FROM informacionServicios WHERE titulo = 'apache' or titulo = 'dns' or titulo = 'email'";
+        $result = $conn->query($sql);
+
+        while($row = $result->fetch_assoc()):
+        ?>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title"><?=$row['titulo']?></h2>
+                        <p class="card-text"><?=$row['contenido']?></p>
+                    </div>
+                    <div class="card-footer"><a class="btn btn-secondary btn-sm" href="<?=$row['url']?>">Mas Info</a></div>
                 </div>
-                <div class="card-footer"><a class="btn btn-secondary btn-sm" href="#!">More Info</a></div>
             </div>
-        </div>
-        <div class="col-md-4 mb-5">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h2 class="card-title">DNS</h2>
-                    <p class="card-text">El sistema de nombres de dominio ​ es un sistema de nomenclatura jerárquico descentralizado para dispositivos conectados a redes IP como Internet o una red privada.</p>
-                </div>
-                <div class="card-footer"><a class="btn btn-secondary btn-sm" href="#!">More Info</a></div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-5">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h2 class="card-title">Mail</h2>
-                    <p class="card-text">Postfix es un servidor de correo de software libre / código abierto, un programa informático para el enrutamiento y envío de correo electrónico, creado con la intención de que sea una alternativa más rápida, fácil de administrar y segura al ampliamente utilizado Sendmail.</p>
-                </div>
-                <div class="card-footer"><a class="btn btn-secondary btn-sm" href="">More Info</a></div>
-            </div>
-        </div>
+        <?php
+
+           endwhile;
+        ?>
+
     </div>
 </div>

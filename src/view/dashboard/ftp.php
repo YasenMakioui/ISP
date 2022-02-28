@@ -1,4 +1,4 @@
-<div class="w-100" id="dns">
+<div class="w-100 d-flex justify-content-center align-items-center"  id="ftp">
     <?php
 
 
@@ -8,9 +8,9 @@
     if ($result['status'] == "no") :
         require_once './src/view/dashboard/setups/ftp.php';
     else :
-        echo $result['nombreUsuario'];
     ?>
 
+    <h1>Su usuario FTP es: <?=$result['nombreUsuario']?> y esta activo!!</h1>
 
 
 <?php endif; ?>

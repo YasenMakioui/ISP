@@ -51,7 +51,7 @@ if (isset($_SESSION['idUsuario'])) {
                         <a class="nav-link text-white" href="?vista=inicio.php">Home</a>
                         <a class="nav-link text-white" href="?vista=servicios.php">Services</a>
                         <a class="nav-link text-white" href="?vista=contacto.php">Contact</a>
-                        <a class="nav-link text-white" href="?vista=mas.php">More</a>
+
                     </div>
                     <?php if (!isset($_SESSION['idUsuario'])) : ?>
                         <div class="buttons "></div>

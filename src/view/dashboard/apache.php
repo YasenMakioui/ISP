@@ -1,4 +1,4 @@
-<div class="w-100 d-flex justify-content-center align-items-center" id="dns">
+<div class="w-100 d-flex justify-content-center align-items-center" id="apache">
     <?php
     $sql = "SELECT status,nombreDominio FROM usuario_servicio WHERE idUsuario = {$_SESSION['idUsuario']} AND idServicio =".
         "(SELECT idServicio FROM servicio WHERE nombreServicio = 'apache')";

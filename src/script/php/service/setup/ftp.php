@@ -14,5 +14,5 @@ $sql = "UPDATE usuario_servicio SET status='yes', nombreUsuario='{$_POST['usuari
 
 
 $conn->query($sql);
-
+//shell_exec("");
 header('Location: /?vista=dashboard.php&accion=ftp');

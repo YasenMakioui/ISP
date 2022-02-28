@@ -14,4 +14,6 @@ $sql = "UPDATE usuario_servicio SET status='yes', nombreDominio='{$_POST['domini
 
 $conn->query($sql);
 
+//shell_exec("");
+
 header('Location: /?vista=dashboard.php&accion=apache');
