@@ -1,5 +1,6 @@
 <?php 
 
+//archivo de prueba para comprobar la conexion en desarrollo
 
 $sql = 'SELECT CURDATE();';
 $result = $conn->query($sql);

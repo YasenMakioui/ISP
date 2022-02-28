@@ -3,7 +3,7 @@
 /**
  * @author Younes Boudouch
  */
-
+//inicializa variable que contiene el mensaje de error
 $noCoincide = "";
 
 //tratamiento de errores 
@@ -39,7 +39,7 @@ if (isset($_SESSION['idUsuario'])) {
          </a>        
       </div>
    </form>
-   <?=$noCoincide?>
+   <?=$noCoincide//mostramos la variable con el error?>
 </div>
 
 

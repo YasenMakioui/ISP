@@ -5,11 +5,12 @@
 
     <div class="row gx-4 gx-lg-5 mt-5">
     <?php
-
+    //creamos sentencia para recuperar la informacion de los servicios
     $sql = "SELECT * FROM informacionServicios";
 
     $result = $conn->query($sql);
 
+    //bucle para imprimir cada servicio
     while ($row = $result->fetch_assoc()):
 
     ?>

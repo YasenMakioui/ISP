@@ -3,10 +3,13 @@
 /**
  * @author Yasen El Makioui, Younes Boudouch
  */
+
+//lugares en los que no queremos que se muestre el encabezado
 if (isset($_GET['vista'])) {
     $noHeader = $_GET['vista'] === 'login.php' || $_GET['vista'] === 'alta.php' || $_GET['vista']==='dashboard.php'? 'd-none' : '';
 }
 
+//si el usuario esta logueado recuperamos su nombre y lo guardamos en la variable
 if (isset($_SESSION['idUsuario'])) {
     $sql = "SELECT nombre FROM usuario WHERE idUsuario = {$_SESSION['idUsuario']}";
 
@@ -53,16 +56,16 @@ if (isset($_SESSION['idUsuario'])) {
                         <a class="nav-link text-white" href="?vista=contacto.php">Contact</a>
 
                     </div>
-                    <?php if (!isset($_SESSION['idUsuario'])) : ?>
+                    <?php if (!isset($_SESSION['idUsuario'])) : //muestra login y signup si el usuario no esta loggeado?>
                         <div class="buttons "></div>
                         <a class="mx-2 btn text-white border-bottom" href="?vista=login.php">Login</a>
                         <a class="btn  mx-2 text-white border-bottom" href="?vista=alta.php">Signup</a>
                 </div>
-            <?php else : ?>
+            <?php else : //si esta logueado mostramos lo siguiente?>
                 <div>
                     <div class="btn-group">
                         <button class="btn btn-secondary btn-md dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <?=$userName ?>
+                            <?=$userName //mostramos el nombre de usuario?>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/?vista=perfil.php">Mi perfil</a></li>

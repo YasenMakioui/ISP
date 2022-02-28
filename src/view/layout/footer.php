@@ -2,6 +2,8 @@
 /**
  * @author Younes Boudouch
  */
+
+//lugares en el que no queremos que se muestre el pie de pagina
 if (isset($_GET['vista'])) {
 $noFooter = $_GET['vista'] === 'login.php' || $_GET['vista'] === 'alta.php' || $_GET['vista'] === 'dashboard.php' ? 'd-none' : '';
 }

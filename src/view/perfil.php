@@ -4,6 +4,7 @@
  * @author Yasen El Makioui
  */
 
+//sentencia para recuperar la informacion del usuario
 $sql = "SELECT * FROM usuario WHERE idUsuario = {$_SESSION['idUsuario']}";
 
 $usuario = $conn->query($sql)->fetch_assoc();
@@ -23,7 +24,7 @@ if (isset($_GET['obligatorio'])){
     
 };
  
-
+//si el usuario no esta loggeado lo mandamos al inicio
 if (!isset($_SESSION['idUsuario'])) {
     header('Location: /?vista=inicio.php');
 }
@@ -60,10 +61,13 @@ if (!isset($_SESSION['idUsuario'])) {
             <label for="poblacion" class="d-block">Población:</label>
             <select name="poblacion" class="d-block mb-2 p-1">
                 <?php
+                //Sentencia para recuperar los paises
                 $sql = "SELECT idCiudad, nombreCiudad FROM ciudad;";
                 //realizar foreach con consulta de poblaciones
                 $selected = "";
                 $result = $conn->query($sql);
+
+                //bucle para meter las ciudades en options
                 while ($row = $result->fetch_assoc()) :
                     
                     if($row['idCiudad'] === $usuario['idCiudad']) {

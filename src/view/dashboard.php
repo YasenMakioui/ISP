@@ -7,16 +7,20 @@
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
-                <?php //bucle para listar servicios
+                <?php
+                //array que va a contener los elementos de navegacion
                 $lista = array("inicio", "serviciosContratados");
 
+                //recupera los servicios de la base de datos
                 $sql = "SELECT servicio.nombreServicio FROM usuario_servicio INNER JOIN servicio USING(idServicio) ";
                 $result = $conn->query($sql);
 
+                //bucle para insertar los servicios en la lista
                 while ($row = $result->fetch_assoc()){
                     array_push($lista, $row['nombreServicio']);
                 }
-                    
+
+                //bucle que pinta los elementos de navegacion usando la informacion de la base de datos
                 foreach ($lista as $value):
 ?>
                 <li>
@@ -47,7 +51,7 @@
         </div>
     </div>
     <?php
-
+    //condicion: recoge la variable de GET para requerir el archivo usando la lista anterior
     if (isset($_GET['accion'])) {
         foreach ($lista as $value) {
             if ($value == $_GET["accion"]) {

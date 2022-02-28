@@ -17,10 +17,11 @@
     <!-- Content Row-->
     <div class="row gx-4 gx-lg-5">
         <?php
-
+            //recupera la informacion de 3 servicios
         $sql = "SELECT * FROM informacionServicios WHERE titulo = 'apache' or titulo = 'dns' or titulo = 'email'";
         $result = $conn->query($sql);
 
+        //bucle que pinta cada servicio
         while($row = $result->fetch_assoc()):
         ?>
             <div class="col-md-4 mb-5">

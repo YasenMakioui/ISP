@@ -4,10 +4,13 @@
  * @author Yasen El Makioui
  */
 
+//iniciamos variable con mensaje de estado
 $statusMsg = "";
 
-if (isset($_GET['obligatorio'])){
 
+//comprobamos si esta la variable obligatorio, indica redireccion desde el script de alta
+if (isset($_GET['obligatorio'])){
+    //estados
     if ($_GET['obligatorio'] == 0 ) {
         $statusMsg = "Los campos obligatorios no se han rellenado correctamente";
     }elseif ($_GET['obligatorio'] == 1 ) {
@@ -51,9 +54,12 @@ if (isset($_GET['obligatorio'])){
             <label for="poblacion" class="d-block">Población:</label>
             <select name="poblacion" class="d-block mb-2 p-1">
                 <?php
+                //recupera la id y el nombre de las ciudades
                 $sql = "SELECT idCiudad, nombreCiudad FROM ciudad;";
                 //realizar foreach con consulta de poblaciones
                 $result = $conn->query($sql);
+
+                //bucle que rellena el select on options de los paises recuperados en la base de datos
                 while ($row = $result->fetch_assoc()) :
                 ?>
                     <option value="<?= $row['idCiudad'] ?>"><?= $row['nombreCiudad'] ?></option>
