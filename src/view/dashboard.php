@@ -8,7 +8,7 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <?php //bucle para listar servicios
-                $lista = array("inicio","resumen", "serviciosContratados");
+                $lista = array("inicio", "serviciosContratados");
 
                 $sql = "SELECT servicio.nombreServicio FROM usuario_servicio INNER JOIN servicio USING(idServicio) ";
                 $result = $conn->query($sql);
