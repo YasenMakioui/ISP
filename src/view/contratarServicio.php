@@ -7,7 +7,7 @@
                 <?php
                 $idContratados = array();
                 $nombreContratados = array();
-                $info = array();
+                
 
                 $sqlContratados = "SELECT idServicio FROM usuario_servicio WHERE idUsuario = {$_SESSION['idUsuario']}";
                 $result = $conn->query($sqlContratados);
@@ -19,7 +19,7 @@
                 $sqlServicio = "SELECT * FROM servicio";
                 $result = $conn->query($sqlServicio);
                 while ($row = $result->fetch_assoc()) :
-                    array_push($info, $row['needsInfo']);
+                    
                     if (!in_array($row['idServicio'], $idContratados)) :
 
                 ?>
