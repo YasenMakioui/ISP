@@ -12,7 +12,7 @@
                 $lista = array("inicio", "serviciosContratados");
 
                 //recupera los servicios de la base de datos
-                $sql = "SELECT servicio.nombreServicio FROM usuario_servicio INNER JOIN servicio USING(idServicio) ";
+                $sql = "SELECT servicio.nombreServicio FROM usuario_servicio INNER JOIN servicio ON servicio.idServicio = usuario_servicio.idServicio WHERE idUsuario = '{$_SESSION['idUsuario']}'";
                 $result = $conn->query($sql);
 
                 //bucle para insertar los servicios en la lista
@@ -39,6 +39,7 @@
                     <strong>mdo</strong>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                    <?php //print_r($lista)?>
                     <li><a class="dropdown-item" href="#">New project...</a></li>
                     <li><a class="dropdown-item" href="#">Settings</a></li>
                     <li><a class="dropdown-item" href="#">Profile</a></li>
