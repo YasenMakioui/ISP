@@ -30,7 +30,7 @@
                         <h2 class="card-title"><?=$row['titulo']?></h2>
                         <p class="card-text"><?=$row['contenido']?></p>
                     </div>
-                    <div class="card-footer"><a class="btn btn-secondary btn-sm" href="<?=$row['url']?>">Mas Info</a></div>
+                    <div class="card-footer"><a class="btn btn-secondary btn-sm" href="<?=$row['url']?>" target="_blank">Mas Info</a></div>
                 </div>
             </div>
         <?php
