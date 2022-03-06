@@ -2,7 +2,7 @@
     <div class="text-center">
         <h1>Contacta con nosotros!!</h1>
     </div>
-    <form class="mt-5 d-flex flex-column align-items-center " method="post" action="">
+    <form class="mt-5 d-flex flex-column align-items-center " method="post" action="/src/script/php/contacto.php">
         <div class="w-25 d-flex flex-column">
             <label for="nombre">Nombre:</label>
             <input type="text" name="nombre">

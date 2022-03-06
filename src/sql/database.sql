@@ -41,3 +41,12 @@ CREATE TABLE informacionServicios (
     titulo varchar("255"),
     contenido longtext
 );
+
+CREATE TABLE contacto(
+    idContacto int auto_increment primary key,
+    nombre varchar(255) not null,
+    apellidos varchar(255),
+    telefono varchar(255) not null,
+    email varchar(255) not null,
+    observaciones text not null
+);
