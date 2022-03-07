@@ -6,7 +6,7 @@
     <div class="row gx-4 gx-lg-5 mt-5">
     <?php
     //creamos sentencia para recuperar la informacion de los servicios
-    $sql = "SELECT * FROM informacionServicios";
+    $sql = "SELECT * FROM informacionservicios";
 
     $result = $conn->query($sql);
 
