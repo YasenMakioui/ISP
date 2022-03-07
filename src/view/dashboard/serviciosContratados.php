@@ -17,6 +17,7 @@
             </thead>
             <tbody>
                 <?php
+                $warning = "";
                     //recuperamos los servicios que tiene el usuario actual
                 $sql = "SELECT usuario_servicio.idServicio, usuario_servicio.status, servicio.nombreServicio FROM usuario_servicio INNER JOIN servicio ON servicio.idServicio = usuario_servicio.idServicio AND idUsuario = '{$_SESSION['idUsuario']}' ";
                 $result = $conn->query($sql);
@@ -24,7 +25,11 @@
 
                 //bucle que pinta filas en la tabla con la informacion del servicio
                 while ($row = $result->fetch_assoc()) :
-                ?>
+                    if ($row['status'] == "no") {
+                        $warning = "true";
+                    }
+                    ?>
+
                     <tr>
                         
                         <td><?= $row['nombreServicio'] ?></td>
@@ -43,5 +48,8 @@
             </tbody>
         </table>
     </div>
+    <div class="w-100 text-center">
+        <h3 class="text-danger"><?=$warning = $warning == "true" ? "Accede al servicio en el panel lateral para inicializarlo" : ""?></h3>
 
+    </div>
 </div>

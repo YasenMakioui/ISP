@@ -11,6 +11,7 @@ $conn = $db->getConection();
 $sql = "UPDATE usuario_servicio SET status='yes', nombreUsuario='{$_POST['usuario']}', password = '{$_POST['password']}',nombreDominio = '{$_POST['dominio']}' WHERE idUsuario = {$_SESSION['idUsuario']} AND idServicio =".
 "(SELECT idServicio FROM servicio WHERE nombreServicio = 'email')";
 
+shell_exec("bash email.sh");
 
 $conn->query($sql);
 //shell_exec("");

@@ -11,8 +11,8 @@ $noFooter = $_GET['vista'] === 'login.php' || $_GET['vista'] === 'alta.php' || $
 ?>
 </div>    
 <div class="footer w-100 d-flex flex-column justify-content-end <?=$noFooter?>">
-    <footer class="text-center">
-        <span class="text-white">klk soy el footer</span>
+    <footer class="text-center bg-secondary">
+        <span class="text-white">ISP <?=date('Y');?></span>
     </footer>
 </div>
 </body>

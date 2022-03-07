@@ -67,9 +67,6 @@
 
     </div>
 </div>
-<script>
+<div style="height: 52vh;">
 
-
-
-
-</script>
+</div>

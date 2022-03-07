@@ -1,4 +1,4 @@
-<div class="w-100" id="email">
+<div class="w-100 d-flex justify-content-center align-items-center" id="email">
     <?php
     //seleccionamos el nombre de dominio y el estado
 
@@ -14,7 +14,7 @@
         else:
     //en caso contrario mostramos su nombre de dominio y su nombre de usuario
     ?>
-       xd
+            <h1>Su dominio de mail es: <?=$result['nombreDominio']?></h1>
     <?php endif;?>
 
    </div>

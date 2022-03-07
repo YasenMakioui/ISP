@@ -16,7 +16,7 @@
     //en caso contrario mostramos su nombre de usuario
     ?>
 
-    <h1>Su usuario FTP es: <?=$result['nombreUsuario']?> y esta activo!!</h1>
+    <h1>Su usuario FTP es: <?=$result['nombreUsuario']?></h1>
 
 
 <?php endif; ?>

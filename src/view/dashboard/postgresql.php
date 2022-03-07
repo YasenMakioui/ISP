@@ -34,9 +34,7 @@
 
 
     <div class="p-5">
-        <div class="d-flex justify-content-end p-1">
-            <a href="#" class="btn btn-primary">Añadir usuario</a>
-        </div>
+
         <table class="table table-bordered">
             <thead>
 

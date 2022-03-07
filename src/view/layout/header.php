@@ -35,7 +35,7 @@ if (isset($_SESSION['idUsuario'])) {
     <script src="/src/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="/src/assets/css/styles.css">
     <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <title>Document</title>
+    <title>ISP</title>
 </head>
 
 <body>
@@ -51,9 +51,9 @@ if (isset($_SESSION['idUsuario'])) {
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="d-flex justify-content-start" style="width: 100% !important;">
                     <div class="d-flex ">
-                        <a class="nav-link text-white" href="?vista=inicio.php">Home</a>
-                        <a class="nav-link text-white" href="?vista=servicios.php">Services</a>
-                        <a class="nav-link text-white" href="?vista=contacto.php">Contact</a>
+                        <a class="nav-link text-white" href="?vista=inicio.php">Inicio</a>
+                        <a class="nav-link text-white" href="?vista=servicios.php">Servicios</a>
+                        <a class="nav-link text-white" href="?vista=contacto.php">Contacto</a>
 
                     </div>
                     <?php if (!isset($_SESSION['idUsuario'])) : //muestra login y signup si el usuario no esta loggeado?>
